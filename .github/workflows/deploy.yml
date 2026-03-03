@@ -20,10 +20,10 @@ jobs:
         with:
           version: v1.29.0
 
-      - name: Configure kubeconfig
+      - name: Fetch kubeconfig from DigitalOcean
         run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBECONFIG_B64 }}" | base64 -d > ~/.kube/config
+          doctl kubernetes cluster kubeconfig save 0626509a-4e15-4f0c-8fdb-84899327af85
+          kubectl get nodes
 
       # - name: Deploy (apply manifests)
       #   run: |
