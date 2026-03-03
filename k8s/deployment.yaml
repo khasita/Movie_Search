@@ -14,6 +14,6 @@ spec:
     spec: # defines the container inside the pod
       containers:
         - name: movie-search
-          image: ghcr.io/khasita/movie_search:REPLACE_AT_DEPLOY_TIME
+          image: ghcr.io/khasita/movie_search:latest
           ports:
             - containerPort: 80
