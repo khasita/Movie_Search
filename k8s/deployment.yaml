@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-search
+spec:
+  replicas: 1 # 1 pod is kept running
+  selector:
+    matchLabels:
+      app: movie-search
+  template: # blueprint for the pod that will be created
+    metadata:
+      labels:
+        app: movie-search
+    spec: # defines the container inside the pod
+      containers:
+        - name: movie-search
+          image: ghcr.io/khasita/movie_search:REPLACE_AT_DEPLOY_TIME
+          ports:
+            - containerPort: 80
